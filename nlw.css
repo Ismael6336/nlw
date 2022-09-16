@@ -1,0 +1,187 @@
+/* Limpando espaçamento padrão do navegador; */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Retirando estilos da lista, pontinhos */
+ul {
+    list-style: none;
+}
+
+/* Colocando Imagem de fundo */
+body {
+    background-image: url(./assets/bg.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #0f0f11;
+}
+
+/* Utilizando Fontes */
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+/* Alinhando o Header */
+header {
+    margin-top: 32px;
+    height: calc(120px + 32px);
+}
+
+/* Fazendo a borda da imagem, não é possível apenas utilizar border-radius
+    por que essa propriedade não trabalha com gradientes. */
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    
+    border-radius: 50%;
+
+    /* Display flex serve para colocar um elemento do lado do outro dentro
+    de uma caixa, mas quando há só 1 elemento, ele alinha com a caixa. */
+    display: flex;
+    padding: 4px;
+
+    /* Transição do header */
+    transition: transform .3s;
+}
+
+/* Transição do Header */
+header div:hover {
+    transform: scale(1.1);
+}
+
+/* Mexendo na Imagem de perfil */
+header div img { 
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* Limitando o tamanho máximo das caixas da página */
+main {
+    max-width: 580px;
+    width: 90%;
+
+    /* Quando o Margin tem 2 valores, ele identifica com em cima
+    e em baixo respectivamente. */
+    margin: 32px auto;
+
+    /* Alinhando as caixas da tela */
+    display: grid;
+    gap: 24px;
+
+    /* Dando espaço entre a imagem */
+
+}
+
+/* Formatando o texto da página */
+section {
+    color: white;
+
+    /* Borda do Cartão */
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+
+}
+
+/* Fazendo os Cartões */
+section div {
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+
+section h2 {
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+/* Arrumando a lista com o display */
+section ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+section ul li {
+    transition: transform .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1);
+}
+
+/* Arredondando as Imagens */
+.games-list img {
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img {
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid #443E54;
+}
+
+
+/* Animação foto */
+
+header div {
+    /* Animation: nome da animação / tempo da animação/ delay da animação */
+    /* Backwards puxa as especificações do começo da animação, do from. */
+    animation: deCima .7s .2s backwards;
+}
+
+@keyframes deCima {
+    from {
+        opacity: 0;
+        transform: translateY(-30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+/* Animação Cartões */
+main section {
+    animation: deBaixo .7s backwards;
+}
+
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+
+main section:nth-child(3){
+    animation-delay: .8s;
+}
+
+@keyframes deBaixo {
+    from {
+        opacity: 0;
+        transform: translateX(-30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
